@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Catagories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h3> Select a Catagory</h3>
+  <ion-list>
+    <button
+      ion-item
+      *ngFor="let itemCatagory of itemCollection"
+      [navPush]="selSearchItemsPage" [navParams]="itemCatagory" >
+      <h2>{{itemCatagory.category}}</h2>
+      <p>{{itemCatagory.items.length}} Items</p>
+    </button>
+  </ion-list>
+</ion-content>
