@@ -13,6 +13,11 @@ import {AddItemPage} from "../pages/add-item/add-item";
 import {AddStorePage} from "../pages/add-store/add-store";
 import {TabsPage} from "../pages/tabs/tabs";
 import {SearchService} from "../services/search.service";
+import {SigninPage} from "../pages/signin/signin";
+import {SignupPage} from "../pages/signup/signup";
+import {AuthService} from "../services/auth";
+import {HttpModule} from "@angular/http";
+import {AddItemService} from "../services/addItem.service";
 
 @NgModule({
   declarations: [
@@ -23,10 +28,13 @@ import {SearchService} from "../services/search.service";
     SelSearchItemPage,
     AddItemPage,
     AddStorePage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -38,13 +46,16 @@ import {SearchService} from "../services/search.service";
     SelSearchItemPage,
     AddItemPage,
     AddStorePage,
-    TabsPage
+    TabsPage,
+    SigninPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SearchService
+    SearchService, AuthService, AddItemService
+
   ]
 })
 export class AppModule {}

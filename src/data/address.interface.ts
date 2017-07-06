@@ -1,5 +1,5 @@
 /**
- * Created by harisivaprasad on 7/2/17.
+ * Created by vidyachandrasekhar on 7/2/17.
  */
 export interface Address{
   addressLine1: string,

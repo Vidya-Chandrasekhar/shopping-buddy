@@ -1,20 +1,36 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {Component, OnInit} from '@angular/core';
+import {NavController, NavParams} from 'ionic-angular';
+import categoryData from "../../data/categories";
+import {NgForm} from "@angular/forms";
+import {AddItemService} from "../../services/addItem.service";
+import {Item} from "../../model/item";
+import {Category} from "../../model/category";
 
-/**
- * Generated class for the AddItemPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
-@IonicPage()
+
 @Component({
   selector: 'page-add-item',
   templateUrl: 'add-item.html',
 })
-export class AddItemPage {
+export class AddItemPage implements OnInit {
+  categories: Category[];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  ngOnInit(): void {
+    this.categories = categoryData;
+  }
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public addItemService: AddItemService) {
+  }
+
+  onAddItem(form: NgForm) {
+
+    var category: Category = new Category(form.value.category, null);
+
+    this.addItemService.addItem(new Item(form.value.name, form.value.measureType, form.value.measureQty, form.value.brand, category))
+      .subscribe(data => {
+        console.log();
+      })
+    console.log(form);
+
   }
 
   ionViewDidLoad() {

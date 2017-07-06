@@ -1,5 +1,5 @@
 /**
- * Created by harisivaprasad on 7/1/17.
+ * Created by vidyachandrasekhar on 7/1/17.
  */
 export default [
   {

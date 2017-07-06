@@ -1,5 +1,10 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>Catagories</ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,10 +15,9 @@
   <ion-list>
     <button
       ion-item
-      *ngFor="let itemCatagory of itemCollection"
-      [navPush]="selSearchItemsPage" [navParams]="itemCatagory" >
-      <h2>{{itemCatagory.category}}</h2>
-      <p>{{itemCatagory.items.length}} Items</p>
+      *ngFor="let category of categories"
+      [navPush]="selSearchItemsPage" [navParams]="category.id" >
+      <h2>{{category.name}}</h2>
     </button>
   </ion-list>
 </ion-content>
