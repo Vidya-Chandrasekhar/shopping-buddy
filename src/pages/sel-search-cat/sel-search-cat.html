@@ -16,7 +16,7 @@
     <button
       ion-item
       *ngFor="let category of categories"
-      [navPush]="selSearchItemsPage" [navParams]="category.id" >
+      [navPush]="selSearchItemsPage" [navParams]="category" >
       <h2>{{category.name}}</h2>
     </button>
   </ion-list>

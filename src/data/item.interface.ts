@@ -7,5 +7,5 @@ export  interface Item {
   name: string,
   size: string,
   brand: string
-  category : Category
+  itemCategory : Category
 }

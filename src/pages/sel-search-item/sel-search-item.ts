@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import { NavParams} from 'ionic-angular';
+import {NavParams} from 'ionic-angular';
 import {Item} from "../../data/item.interface";
 import {SearchService} from "../../services/search.service";
 import {ItemSearchResult} from "../../data/item.search.result.interface";
@@ -10,16 +10,25 @@ import {ItemSearchResult} from "../../data/item.search.result.interface";
   templateUrl: 'sel-search-item.html',
 })
 export class SelSearchItemPage implements OnInit {
-  item: Item
-  searchResults: ItemSearchResult[];
+  items: Item[];
 
-  constructor(private  navParams: NavParams, private searchService:  SearchService) {
+  constructor(private  navParams: NavParams, private searchService: SearchService) {
   }
 
   ngOnInit(): void {
-    this.item = this.navParams.data.selectedItem;
-    this.searchResults = this.searchService.searchForPrice(this.item)
-  }
+    const categoryID = this.navParams.data.category.id;
+    // this.itemCollection = quotes;
+    this.searchService.getItemsInCategory(categoryID).subscribe(
+      ((data: Item[]) => {
+        console.log(data);
+        if (data) {
+          this.items = data;
+        } else {
+          this.items = [];
+        }
+      } )
+    )
 
+  }
 
 }

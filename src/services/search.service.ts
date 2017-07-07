@@ -39,4 +39,14 @@ export class SearchService implements OnInit {
       });
   }
 
+  getItemsInCategory(categoryID: number) {
+    var servicetoken = this.authService.getServiceToken();
+    var basicOptions: RequestOptionsArgs = {
+      headers: new Headers({'authorization': servicetoken}),
+    };
+    return this.http.get('http://localhost:8100/items/'+ categoryID, basicOptions)
+      .map((response: Response) => {
+        return response.json()
+      });
+  }
 }

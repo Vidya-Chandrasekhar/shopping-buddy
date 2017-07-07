@@ -17,18 +17,16 @@
 
 
 <ion-content padding>
-  <ion-card *ngFor="let searchResult of searchResults">
-    <ion-card-header>{{searchResult.price}} $</ion-card-header>
+  <ion-card *ngFor="let item of items">
+    <ion-card-header>{{item.name}} $</ion-card-header>
     <ion-row>
       <ion-col text-left>
         <p>
-          {{searchResult?.address?.addressLine1}}
-          {{searchResult?.address?.addressLine2}} {{searchResult?.address?.city}} {{searchResult?.address?.state}}
-          {{searchResult?.address?.zipcode}}
+
         </p>
       </ion-col>
       <ion-col text-right>
-        {{searchResult?.distianceFromcurrentLocation}} Miles
+
       </ion-col>
     </ion-row>
   </ion-card>

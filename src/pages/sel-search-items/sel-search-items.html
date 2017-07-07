@@ -7,21 +7,28 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>{{itemCategory.category | uppercase}}</ion-title>
+    <ion-title>{{category}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
+
+
 <ion-content padding>
-  <ion-card *ngFor="let item of itemCategory.items">
-    <ion-card-header>{{item.name}}</ion-card-header>
-    <ion-card-content>Brand:{{item.brand}} Size:{{item.size}}</ion-card-content>
+  <ion-card *ngFor="let item of items">
+    <ion-card-header>{{item.name}} $</ion-card-header>
     <ion-row>
+      <ion-col text-left>
+        <p>
+
+        </p>
+      </ion-col>
       <ion-col text-right>
-        <button ion-button clear small (click)="onSelectForSearch(item)">Search Price</button>
+
       </ion-col>
     </ion-row>
   </ion-card>
 
 </ion-content>
+
