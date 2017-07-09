@@ -4,6 +4,7 @@
 import firebase from 'firebase'
 import {Http} from "@angular/http";
 import {Injectable} from "@angular/core";
+import {User} from "../model/user";
 
 @Injectable()
 export class AuthService {
@@ -13,8 +14,11 @@ export class AuthService {
   }
 
   serviceToken: string;
+  user: User;
 
-  signup(email: string, password: string) {
+
+  signup(email: string, password: string, username: string) {
+    this.user = new User(email,username);
     return firebase.auth().createUserWithEmailAndPassword(email, password);
   }
   signin(email: string, password: string){

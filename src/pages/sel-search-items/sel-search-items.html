@@ -9,26 +9,16 @@
     </ion-buttons>
     <ion-title>{{category}}</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-
-
 <ion-content padding>
-  <ion-card *ngFor="let item of items">
-    <ion-card-header>{{item.name}} $</ion-card-header>
-    <ion-row>
-      <ion-col text-left>
-        <p>
-
-        </p>
-      </ion-col>
-      <ion-col text-right>
-
-      </ion-col>
-    </ion-row>
-  </ion-card>
-
+  <h3> Select an Item</h3>
+  <ion-list>
+    <button
+      ion-item
+      *ngFor="let item of items"
+      [navPush]="selSearchItemPage" [navParams]="item" >
+      <h2>{{item.name}} {{item.brand}} {{item.qty}} {{item.qtytype}}</h2>
+    </button>
+  </ion-list>
 </ion-content>
-

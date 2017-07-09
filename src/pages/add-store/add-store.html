@@ -12,12 +12,48 @@
         <ion-icon name="menu"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title>add-store</ion-title>
+    <ion-title>Add a Store</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <form #f="ngForm" (ngSubmit)="onAddStore(f)">
+    <ion-list>
+      <ion-item>
+        <ion-label fixed>Store Name</ion-label>
+        <ion-input ngModel type="text" name="storeName" placeholder="Enter Store Name" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Address Line1</ion-label>
+        <ion-input ngModel type="text" name="addressLine1" placeholder="AddressLine1"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Address Line2</ion-label>
+        <ion-input ngModel type="text" name="addressLine2" placeholder="AddressLine2"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>City</ion-label>
+        <ion-input ngModel type="text" name="city" placeholder="City"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>State</ion-label>
+        <ion-select ngModel name="state" >
+          <ion-option value="Alabams">AL</ion-option>
+          <ion-option value="Alaska">AK</ion-option>
+          <ion-option value="Arizona">AZ</ion-option>
+          <ion-option value="Pennsylvania">PA</ion-option>
+          <ion-option value="Delaware">DE</ion-option>
+          <ion-option value="NewJersey">NJ</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>Zip</ion-label>
+        <ion-input ngModel type="number" name="zipcode" required></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button type="submit" block [disabled]="!f.valid"> Add</button>
 
+  </form>
 </ion-content>

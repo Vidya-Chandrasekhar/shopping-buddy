@@ -12,6 +12,7 @@ export class SelSearchItemsPage {
 
   items: Item[];
   category: String;
+  selSearchItemPage = SelSearchItemPage;
 
   constructor(private  navParams: NavParams, private searchService: SearchService) {
   }

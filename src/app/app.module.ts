@@ -18,6 +18,9 @@ import {SignupPage} from "../pages/signup/signup";
 import {AuthService} from "../services/auth";
 import {HttpModule} from "@angular/http";
 import {AddItemService} from "../services/addItem.service";
+import {UserService} from "../services/user.service";
+import {AddPricePage} from "../pages/add-price/add-price";
+import {StoreService} from "../services/store.service";
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import {AddItemService} from "../services/addItem.service";
     AddStorePage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    AddPricePage
   ],
   imports: [
     BrowserModule,
@@ -48,13 +52,14 @@ import {AddItemService} from "../services/addItem.service";
     AddStorePage,
     TabsPage,
     SigninPage,
-    SignupPage
+    SignupPage,
+    AddPricePage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    SearchService, AuthService, AddItemService
+    SearchService, AuthService, AddItemService,UserService,StoreService
 
   ]
 })

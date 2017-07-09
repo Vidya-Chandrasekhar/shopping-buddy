@@ -12,7 +12,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-search-price',
   templateUrl: 'search-price.html',
 })
-export class SearchPricePage {
+export class SearchPricePage  {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
